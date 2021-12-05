@@ -2,7 +2,7 @@ from typing import List
 
 
 def problem_1():
-    with open("problem-1-input.txt") as file:
+    with open("problem-input.txt") as file:
         lines = file.readlines()
         lines = [line.rstrip() for line in lines]
 
@@ -16,7 +16,7 @@ def problem_1():
 
 def problem_2():
     n = 3
-    with open("problem-1-input.txt") as file:
+    with open("problem-input.txt") as file:
         lines = file.readlines()
         lines: List[str] = [line.rstrip() for line in lines]
 

@@ -3,7 +3,7 @@ from typing import List
 
 def problem_1():
     print("problem 1")
-    with open("problem-1-input.txt") as file:
+    with open("problem-input.txt") as file:
         lines: List[str] = file.readlines()
         lines: List[str] = [line.rstrip() for line in lines]
 
@@ -37,7 +37,7 @@ def problem_1():
 
 
 def filter_input(use_most_frequent_bit: bool = True) -> List[str]:
-    with open("problem-1-input.txt") as file:
+    with open("problem-input.txt") as file:
         lines: List[str] = file.readlines()
         lines: List[str] = [line.rstrip() for line in lines]
         binary_number_length: int = len(lines[0])
