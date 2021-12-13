@@ -57,6 +57,7 @@ def create_bingo_boards(lines: List[str]) -> List[List[List[str]]]:
 
     return boards
 
+
 def problem_1():
     print("problem 1")
     with open("problem-input.txt") as file:
@@ -77,6 +78,7 @@ def problem_1():
                             if bingo:
                                 print("board score:", compute_board_score(int(number), board))
                                 return
+
 
 def problem_2():
     print("problem 2")

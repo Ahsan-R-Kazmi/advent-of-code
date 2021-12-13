@@ -35,7 +35,7 @@ def print_point_count_dict(point_count_dict: Dict[Tuple[int, int], int]) -> None
     print()
 
 
-def count_dot_after_folds(folds: int) -> int:
+def count_dot_after_folds(folds: int = None, print_output: bool = False) -> int:
     point_count = 0
     with open("problem-input.txt") as file:
         lines: List[str] = file.readlines()
@@ -55,8 +55,9 @@ def count_dot_after_folds(folds: int) -> int:
             else:
                 fold_instructions.append(line)
 
+        if folds is None:
+            folds = len(fold_instructions)
         for i in range(folds):
-            print_point_count_dict(point_count_dict)
             axis = fold_instructions[i].split("=")[0]
             value = int(fold_instructions[i].split("=")[1])
             new_point_count_dict = copy.deepcopy(point_count_dict)
@@ -74,14 +75,16 @@ def count_dot_after_folds(folds: int) -> int:
 
             point_count_dict = new_point_count_dict
 
-        print_point_count_dict(point_count_dict)
         for point, count in point_count_dict.items():
             if count > 0:
                 point_count += 1
+
+        if print_output:
+            print_point_count_dict(point_count_dict)
 
     return point_count
 
 
 if __name__ == '__main__':
     print("Dots after fist fold:", count_dot_after_folds(1))
-    print("Dots after all folds:", count_dot_after_folds(12))
+    print("Dots after all folds:", count_dot_after_folds(print_output=True))
