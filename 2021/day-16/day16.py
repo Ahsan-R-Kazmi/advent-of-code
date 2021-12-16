@@ -36,10 +36,6 @@ def process_literal_value(start_position: int, binary_str: str) -> Tuple[int, in
     return i, int(literal_str, 2)
 
 
-def process_operator_packet():
-    a = 1
-
-
 def process_packet(start_position: int, binary_str: str) -> Tuple[int, int, int]:
 
     i = start_position
