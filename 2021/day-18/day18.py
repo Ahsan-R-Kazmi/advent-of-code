@@ -35,7 +35,7 @@ def add_right_real_number(i: int, n: List, real_number: int) -> bool:
 
 
 def explode_snailfish_number(n: List, level: int) -> [bool, Optional[int], Optional[int]]:
-    reduction_performed: bool = False
+    operation_performed: bool = False
     left_number = None
     right_number = None
 
@@ -65,9 +65,9 @@ def explode_snailfish_number(n: List, level: int) -> [bool, Optional[int], Optio
             break
 
         if index_to_replace is not None:
-            reduction_performed = True
+            operation_performed = True
             n[index_to_replace] = 0
-        return reduction_performed, left_number, right_number
+        return operation_performed, left_number, right_number
 
     for i in range(len(n)):
         if type(n[i]) is not list:
@@ -75,7 +75,7 @@ def explode_snailfish_number(n: List, level: int) -> [bool, Optional[int], Optio
 
         result = explode_snailfish_number(n[i], level + 1)
         if result[0]:
-            reduction_performed = result[0]
+            operation_performed = result[0]
             if result[1] is not None and not add_left_real_number(i, n, real_number=result[1]):
                 left_number = result[1]
             if result[2] is not None and not add_right_real_number(i, n, real_number=result[2]):
@@ -83,7 +83,7 @@ def explode_snailfish_number(n: List, level: int) -> [bool, Optional[int], Optio
 
             break
 
-    return reduction_performed, left_number, right_number
+    return operation_performed, left_number, right_number
 
 
 def split_number(n: List, i: int):
