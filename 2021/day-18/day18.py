@@ -168,11 +168,8 @@ def compute_snailfish_numbers_addition_result() -> Tuple[int, int]:
                     continue
 
                 largest_sum = max(largest_sum,
-                                  max(compute_magnitude(reduce_snailfish_numbers(
-                                      add_snailfish_numbers(copy.deepcopy(a), copy.deepcopy(b)))),
-                                      compute_magnitude(reduce_snailfish_numbers(
-                                          add_snailfish_numbers(copy.deepcopy(b), copy.deepcopy(a))))
-                                  )
+                                  compute_magnitude(reduce_snailfish_numbers(
+                                      add_snailfish_numbers(copy.deepcopy(a), copy.deepcopy(b))))
                                   )
 
         return compute_magnitude(c), largest_sum
